@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use utf8;
+use File::Find::Rule;
 
 
 # Receive the directory path
@@ -12,6 +13,16 @@ $dir =~ s{"$}{};
 # If the specified directory is directly under the drive, 
 # you will get a warning and be finished. 
 &dir_check( \$dir );
+
+my $file_pattern = '*.txt'; # File pattern (I'm using *.txt as an example here)
+my @files = File::Find::Rule->file->name($file_pattern)->in($dir); # Get a file path in recursion
+
+foreach my $f ( @files ){
+	print $f ."\n";
+
+	# Write the process you want to do.
+	
+}
 
 print "\nDone!\nEnter to exit\n";
 system ( 'pause > nul' );
