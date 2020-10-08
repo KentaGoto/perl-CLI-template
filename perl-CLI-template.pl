@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use utf8;
 use File::Find::Rule;
+use Encode qw/encode decode/;
 
 
 # Receive the directory path
@@ -19,9 +20,10 @@ my @files = File::Find::Rule->file->name($file_pattern)->in($dir); # Get a file 
 &file_empty_check( \@files ); # Empty check
 
 foreach my $f ( @files ){
-	print $f ."\n";
-
 	# Write the process you want to do.
+
+	# $f = decode('shift-jis', $f);
+	# print encode('shift-jis', $f) ."\n";
 	
 }
 
