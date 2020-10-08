@@ -22,8 +22,10 @@ my @files = File::Find::Rule->file->name($file_pattern)->in($dir); # Get a file 
 foreach my $f ( @files ){
 	# Write the process you want to do.
 
-	# $f = decode('shift-jis', $f);
-	# print encode('shift-jis', $f) ."\n";
+	# In the case of Windows, the file path fetched by 
+	# File::Find::Rule should be handled by Shift-JIS or CP932. 
+	#$f = decode('shift-jis', $f);
+	#print encode('shift-jis', $f) ."\n";
 	
 }
 
