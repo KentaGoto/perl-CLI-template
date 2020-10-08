@@ -16,6 +16,7 @@ $dir =~ s{"$}{};
 
 my $file_pattern = '*.txt'; # File pattern (I'm using *.txt as an example here)
 my @files = File::Find::Rule->file->name($file_pattern)->in($dir); # Get a file path in recursion
+&file_empty_check( \@files ); # Empty check
 
 foreach my $f ( @files ){
 	print $f ."\n";
@@ -36,6 +37,20 @@ sub dir_check {
 		print "WARNING: The drive's nadir cannot be processed\.\n";
 		print "Enter to exit\.\n";
 		system ( 'pause > nul' );
+		exit;
+	}
+}
+
+# Check if the file is empty.
+sub file_empty_check {
+	my ( $files ) = @_;
+
+	if ( @$files ){
+	
+	} else {
+		print "The file to be processed was not found\.\n";
+		print "Enter to exit\.\n";
+		system ('pause > nul');
 		exit;
 	}
 }
