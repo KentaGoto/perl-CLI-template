@@ -3,6 +3,7 @@ use warnings;
 use utf8;
 use File::Find::Rule;
 use Encode qw/encode decode/;
+use Data::Dumper;
 
 
 # Receive the directory path
