@@ -53,7 +53,7 @@ sub file_empty_check {
 	if ( @$files ){
 	
 	} else {
-		print "The file to be processed was not found\.\n";
+		print "Not found\.\n";
 		print "Enter to exit\.\n";
 		system ('pause > nul');
 		exit;
